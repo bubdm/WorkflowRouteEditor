@@ -1,0 +1,42 @@
+﻿<UserControl
+    x:Class="WorkflowRouteEditor.Control.DrawingControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WorkflowRouteEditor.Control"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:WorkflowRouteEditor.Control.View"
+    xmlns:vm="clr-namespace:WorkflowRouteEditor.Control.ViewModel"
+    x:Name="parent"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    DataContext="{x:Static vm:MainViewModel.Instance}"
+    mc:Ignorable="d">
+    <UserControl.Resources />
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*" />
+            <ColumnDefinition Width="0.7*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel x:Name="proppanel" Grid.Column="0">
+            <view:PropertiesView
+                x:Name="properties"
+                Width="{Binding ElementName=proppanel, Path=ActualWidth}"
+                Height="{Binding ElementName=proppanel, Path=ActualHeight}"
+                Margin="0,0,6,0"
+                BorderBrush="Gray"
+                BorderThickness="1"
+                DataContext="{Binding ElementName=parent, Path=DataContext.RouteViewModel}" />
+        </StackPanel>
+        <GridSplitter Width="5" VerticalAlignment="Stretch" />
+        <StackPanel x:Name="drawpanel" Grid.Column="1">
+            <view:DrawingView
+                x:Name="drawing"
+                Width="{Binding ElementName=drawpanel, Path=ActualWidth}"
+                Height="{Binding ElementName=drawpanel, Path=ActualHeight}"
+                DataContext="{Binding ElementName=parent, Path=DataContext.RouteItemViewModel}"
+                RouteItems="{Binding Items}"
+                SelectedItem="{Binding SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="UIElements\**" />
+    <EmbeddedResource Remove="UIElements\**" />
+    <None Remove="UIElements\**" />
+    <Page Remove="UIElements\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Control\AdornerDragDrop.cs" />
+    <Compile Remove="Control\CanvasLayout.cs" />
+    <Compile Remove="Control\VisualHostContainer.cs" />
+    <Compile Remove="Control\WFEditor.xaml.cs" />
+    <Compile Remove="Control\Drawing\DrawingItemsControl.xaml.cs" />
+    <Compile Remove="Control\Drawing\DrawingLayout.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Control\WFEditor.xaml" />
+    <Page Remove="Control\Drawing\DrawingItemsControl.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+
+</Project>
