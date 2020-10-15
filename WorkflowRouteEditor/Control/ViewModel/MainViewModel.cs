@@ -15,6 +15,8 @@ namespace WorkflowRouteEditor.Control.ViewModel
             {
                 if (_Instance == null)
                 {
+                    // For Test only 
+                    // In other case need use dependency injection
                     _Instance = new MainViewModel(
                         new RouteItemViewModel(new RouteItemRepository(), RouteItemFactory.Instance),
                         new RouteViewModel());
