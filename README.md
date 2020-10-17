@@ -1,2 +1,2 @@
 # WorkflowRouteEditor
-WPF addorner test application
+WPF adorner test application
